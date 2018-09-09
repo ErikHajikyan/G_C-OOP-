@@ -51,7 +51,9 @@ grade1 = Grade(94)
 #Grade.getGrade(grade1)
 
 
+
 class Assigment():
+    asgCount = 0
 
     def __init__(self,name,percent,deadline,description):
         self.name = name
@@ -63,7 +65,8 @@ class Assigment():
         while not int(self.percent) in range(0, 101):
             self.percent = input("Value Error!!Too high percentage. Try in range(0-100) : ")
 
-
+    def assigmentCount(self):
+        print "Total student number %d" % Student.stdCount
 
     def getInfo(self):
         time_left = self.deadline - datetime.date.today()
@@ -74,3 +77,18 @@ assig1 = Assigment("Project",30,datetime.date(2018,9,10),"Individual project")
 assig1.getInfo()
 #Assigment.checkIfValidP(assig1)
 
+class Course:
+    def __init__(self,name,ID,credit,lecturer,assigment):
+        self.name = name
+        self.ID = ID
+        self.credit = credit
+        self.lecturer = lecturer
+        self.assigment = assigment
+
+
+
+    def getInfo(self):
+        print "\n","Course Information: ","\n","Course name: ", self.name, "\n", "Course ID: ", self.ID,"\n","Course Credits: ",self.credit, "\n", "Lecturer: ", self.lecturer,"\n", "Assigments: ",
+
+course1 = Course("Data Structures and Algoritms","ENGS115",3,"Satenik Mnatsakanyan",Assigment)
+course1.getInfo()
